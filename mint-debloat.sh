@@ -3,7 +3,7 @@ set -euo pipefail
 
 # =========================================================
 # Linux Mint Debloat Script
-# Author: You
+# Author: Alex
 # =========================================================
 
 LOG_FILE="$HOME/mint-debloat.log"
@@ -13,50 +13,21 @@ echo "Log file: $LOG_FILE"
 echo
 
 # =========================================================
-# Package Groups
+# Load Package List
 # =========================================================
 
-PKGS=(
-  # Office / Communication
-  libreoffice*
-  thunderbird*
+PKG_FILE="$(dirname "$0")/packages.conf"
 
-  # Media
-  rhythmbox*
-  hypnotix
-  celluloid
-  drawing
-  pix
-  simple-scan
+if [[ ! -f "$PKG_FILE" ]]; then
+  echo "ERROR: packages.conf not found!"
+  exit 1
+fi
 
-  # Mint Extras (safe subset)
-  webapp-manager
-  warpinator
-  thingy
+echo "Loading package list from: $PKG_FILE"
 
-  # Accessibility
-  onboard
-  orca
-  speech-dispatcher*
+mapfile -t PKGS < <(grep -Ev '^\s*#|^\s*$' "$PKG_FILE")
 
-  # Network Sharing
-  samba*
-  avahi*
 
-  # Misc
-  transmission-gtk
-  yt-dlp
-  gucharmap
-  baobab
-
-  # Flatpak
-  flatpak
-  libflatpak0
-  gir1.2-flatpak-1.0
-
-  # Snap remnants
-  libsnapd-glib-2-1
-)
 
 # =========================================================
 # Show Planned Removal
@@ -71,6 +42,11 @@ if [[ "$CONFIRM" != "y" ]]; then
   echo "Aborted."
   exit 0
 fi
+
+echo
+echo "Packages loaded:"
+printf '%s\n' "${PKGS[@]}"
+echo
 
 # =========================================================
 # Simulation
