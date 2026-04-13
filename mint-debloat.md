@@ -7,41 +7,41 @@
 ---
 
 ## Removed Packages
-libreoffice*
-thunderbird*
-rhythmbox*
-hypnotix
-celluloid
-drawing
-pix
-simple-scan
+- libreoffice*
+- thunderbird*
+- rhythmbox*
+- hypnotix
+- celluloid
+- drawing
+- pix
+- simple-scan
 
-mintbackup
-mintchat
-mintstick
-mintwelcome
+- mintbackup
+- mintchat
+- mintstick
+- mintwelcome
 
-webapp-manager
-warpinator
-thingy
+- webapp-manager
+- warpinator
+- thingy
 
-onboard
-orca
-speech-dispatcher*
+- onboard
+- orca
+- speech-dispatcher*
 
-samba*
-avahi*
+- samba*
+- avahi*
 
-transmission-gtk
-yt-dlp
-gucharmap
-baobab
+- transmission-gtk
+- yt-dlp
+- gucharmap
+- baobab
 
-flatpak
-libflatpak0
-gir1.2-flatpak-1.0
+- flatpak
+- libflatpak0
+- gir1.2-flatpak-1.0
 
-libsnapd-glib-2-1
+- libsnapd-glib-2-1
 
 ---
 
