@@ -71,6 +71,4 @@ See `mint-debloat.md` for:
 * Package decisions
 * Lessons learned
 
-````
-
 ---
